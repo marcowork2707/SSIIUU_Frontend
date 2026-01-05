@@ -5,7 +5,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   min-width: 350px;
   max-width: 400px;
-  max-height: calc(100vh - 140px);
+  height: 100%;
   overflow-y: auto;
 }
 
@@ -132,9 +132,78 @@
   .dashboard {
     max-width: 100%;
     max-height: none;
+    
   }
   
   .kpi-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* Info de usuario */
+.user-info-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.user-info-box p {
+  margin: 0.25rem 0;
+}
+
+.user-rol {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* Secciones protegidas */
+.protected-section {
+  position: relative;
+  border: 2px solid #667eea;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.protected-badge {
+  position: absolute;
+  top: -12px;
+  right: 10px;
+  background: #667eea;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* Prompts de login */
+.login-prompt,
+.upgrade-prompt {
+  background: #fef3c7;
+  border: 2px solid #f59e0b;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.login-prompt p,
+.upgrade-prompt p {
+  margin: 0;
+  color: #92400e;
+  font-size: 0.95rem;
+}
+
+.upgrade-prompt {
+  background: #e0e7ff;
+  border-color: #667eea;
+}
+
+.upgrade-prompt p {
+  color: #3730a3;
 }

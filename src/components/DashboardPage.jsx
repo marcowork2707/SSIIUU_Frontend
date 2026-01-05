@@ -8,7 +8,7 @@ function DashboardPage() {
   const [kpis, setKpis] = useState(null);
   const [accidentes, setAccidentes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { token } = useAuth();
+  const { token, usuario } = useAuth();
 
   const API_URL = 'http://localhost:5000/api';
 
@@ -20,12 +20,17 @@ function DashboardPage() {
     try {
       setLoading(true);
 
+      // Headers con token JWT (opcional para rutas públicas)
+      const headers = token ? {
+        'Authorization': `Bearer ${token}`
+      } : {};
+
       // KPIs generales (público)
-      const kpisRes = await fetch(`${API_URL}/kpis/general`);
+      const kpisRes = await fetch(`${API_URL}/kpis/general`, { headers });
       const kpisData = await kpisRes.json();
 
       // Accidentes para mapa (público)
-      const accidentesRes = await fetch(`${API_URL}/accidentes/heatmap`);
+      const accidentesRes = await fetch(`${API_URL}/accidentes/heatmap`, { headers });
       const accidentesData = await accidentesRes.json();
 
       setKpis(kpisData);
@@ -48,8 +53,8 @@ function DashboardPage() {
 
   return (
     <div className="dashboard-page">
-      <Dashboard kpis={kpis} />
-      <MapView accidentes={accidentes} loading={loading} />
+      <Dashboard kpis={kpis} loading={loading} usuario={usuario} />
+      <MapView accidentes={accidentes} loading={loading} usuario={usuario} />
     </div>
   );
 }
