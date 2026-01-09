@@ -6,6 +6,7 @@ import Register from './components/Register';
 import DashboardPage from './components/DashboardPage';
 import AnalysisPage from './components/AnalysisPage';
 import ScoringPage from './components/ScoringPage';
+import AdminPage from './components/AdminPage';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
@@ -58,10 +59,7 @@ function App() {
               path="/usuarios" 
               element={
                 <ProtectedRoute rolesPermitidos={['admin']}>
-                  <div style={{ padding: '2rem', textAlign: 'center' }}>
-                    <h1>👥 Gestión de Usuarios</h1>
-                    <p>Sección en desarrollo - Administración de usuarios</p>
-                  </div>
+                  <AdminPage />
                 </ProtectedRoute>
               } 
             />
