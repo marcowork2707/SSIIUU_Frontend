@@ -4,6 +4,8 @@ import { AuthProvider } from './context/AuthContext';
 import Login from './components/Login';
 import Register from './components/Register';
 import DashboardPage from './components/DashboardPage';
+import AnalysisPage from './components/AnalysisPage';
+import ScoringPage from './components/ScoringPage';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
@@ -37,10 +39,7 @@ function App() {
               path="/analisis" 
               element={
                 <ProtectedRoute rolesPermitidos={['gestor', 'admin']}>
-                  <div style={{ padding: '2rem', textAlign: 'center' }}>
-                    <h1>📈 Análisis Avanzado</h1>
-                    <p>Sección en desarrollo - Gráficas y análisis detallados</p>
-                  </div>
+                  <AnalysisPage />
                 </ProtectedRoute>
               } 
             />
@@ -49,10 +48,7 @@ function App() {
               path="/scoring" 
               element={
                 <ProtectedRoute rolesPermitidos={['gestor', 'admin']}>
-                  <div style={{ padding: '2rem', textAlign: 'center' }}>
-                    <h1>⚠️ Scoring de Riesgo</h1>
-                    <p>Sección en desarrollo - Zonas peligrosas y scoring</p>
-                  </div>
+                  <ScoringPage />
                 </ProtectedRoute>
               } 
             />
